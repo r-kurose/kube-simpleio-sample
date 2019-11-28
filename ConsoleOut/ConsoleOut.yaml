@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pod-consoleout
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rtc-consoleout
+  template:
+    metadata:
+      labels:
+        app: rtc-consoleout
+    spec:	
+      containers:
+      - name: container-consoleout
+        image: DOCKER-HUB-LOGIN-NAME/consoleout:1.0 
+        command:
+          - /work/ConsoleOutComp
+        args:
+          - "-o"
+          - "corba.nameservers:10.96.0.100"
+          - "-o"
+          - "manager.components.preactivation:ConsoleOut0"
+      nodeSelector:
+        consoleout: "true"
