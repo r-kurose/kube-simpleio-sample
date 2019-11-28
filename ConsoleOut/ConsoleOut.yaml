@@ -11,10 +11,10 @@ spec:
     metadata:
       labels:
         app: rtc-consoleout
-    spec:	
+    spec:
       containers:
       - name: container-consoleout
-        image: DOCKER-HUB-LOGIN-NAME/consoleout:1.0 
+        image: kuroseaist/consoleout:1.0
         command:
           - /work/ConsoleOutComp
         args:
@@ -22,5 +22,7 @@ spec:
           - "corba.nameservers:10.96.0.100"
           - "-o"
           - "manager.components.preactivation:ConsoleOut0"
+          - "-o"
+          - "port.inport.in.subscribe_topic: data_topic"
       nodeSelector:
         consoleout: "true"
