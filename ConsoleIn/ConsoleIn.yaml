@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: container-consolein
-        image: kuroseaist/consolein:1.0
+        image: kuroseaist/consolein:1.1
         tty: true
         stdin: true
         command:

@@ -103,6 +103,7 @@ RTC::ReturnCode_t ConsoleIn::onExecute(RTC::UniqueId  /*ec_id*/)
   count++;
 #else
   std::cin >> m_out.data;
+  m_out.data += 1;
   if(std::cin.fail())
   {
       std::cin.clear();
