@@ -16,7 +16,7 @@ spec:
       - name: container-consoleout
         image: DOCKER-HUB-LOGIN-NAME/consoleout:1.0 
         command:
-          - /usr/local/components/bin/ConsoleOutComp
+          - /work/ConsoleOutComp
         args:
           - "-o"
           - "corba.nameservers:10.96.0.100"
