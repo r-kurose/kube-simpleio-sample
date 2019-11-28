@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pod-consolein
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rtc-consolein
+  template:
+    metadata:
+      labels:
+        app: rtc-consolein
+    spec:	
+      containers:
+      - name: container-consolein
+        image: DOCKER-HUB-LOGIN-NAME/consolein:1.0 
+        command:
+          - /usr/local/components/bin/ConsoleInComp
+        args:
+          - "-o"
+          - "corba.nameservers:10.96.0.100"
+          - "-o"
+          - "manager.components.preactivation:ConsoleIn0"
+      nodeSelector:
+        consolein: "true"
